@@ -1,0 +1,16 @@
+Ad Soyad: Sıla Ağgül
+Öğrenci No: 250541020
+
+LLM Konuşma Geçmişi:,
+
+Ben:
+Bir online alışveriş sepeti sistemi yapmak istiyorum. Kullanıcı girişinden sipariş onayına kadar olan süreci göstermek istiyorum. Bana bunun için bir pseudocode hazırlar mısın?
+LLM:
+Tabii, aşağıda kullanıcı girişi, ürün seçimi, stok kontrolü, sepet yönetimi, indirim kodu ve ödeme süreçlerini içeren ayrıntılı bir pseudocode var.
+(pseudocode burada yer alır)
+
+Ben:
+Şimdi bu pseudocode’a uygun bir akış diyagramı istiyorum ama DOT formatında olsun.
+LLM:
+Elbette. Aşağıdaki DOT kodu sistemin akışını Türkçe açıklamalarla gösteriyor.
+(dot kodu burada yer alır)
