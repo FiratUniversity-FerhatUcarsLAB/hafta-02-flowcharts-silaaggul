@@ -1,0 +1,18 @@
+Ad Soyad: Sıla Ağgül
+Öğrenci No: 250541020
+
+LLM sohbet geçmişi:
+
+Ben:
+Bir akıllı ev güvenlik sistemi yapmak istiyorum. Sensörlerin sürekli kontrol edildiği, alarm seviyeleri ve bildirim süreçleri olan bir model olacak. Bunun için bana bir pseudocode yazar mısın?
+LLM:
+Tabii, sistem aktifliği kontrolü, sensör döngüsü, kamera aktivasyonu, yanlış alarm ve alarm seviyeleri dahil ayrıntılı bir pseudocode hazırladım.
+(pseudocode burada yer alır)
+
+Ben:
+Şimdi bu yapıya uygun bir akış diyagramı istiyorum, DOT formatında ve tamamen Türkçe olsun.
+
+LLM:
+Tamam, aşağıdaki DOT kodu sürekli çalışan sensör döngüsünü Türkçe etiketlerle göstermektedir.
+(dot kodu burada yer alır)
+
