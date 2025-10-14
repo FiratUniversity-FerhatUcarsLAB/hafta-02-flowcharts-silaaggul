@@ -1,0 +1,46 @@
+Ad Soyad: Sıla Ağgül
+Öğrenci No: 250541020
+
+ Akıllı Ev GÜVenlik Sistemi Dot Kodu:
+
+digraph AkilliEvSistemi {
+    rankdir=TB;
+    node [shape=box, fontname="Arial"];
+
+    Basla [label="Başla"];
+    SistemKontrol [label="Sistem Aktif mi?", shape=diamond];
+    Pasif [label="Sistem Pasif\nİşlem Sonlandır"];
+    Dongu [label="Sensör Okuma Döngüsü\n(Sürekli Çalışma)"];
+    Hareket [label="Hareket Sensörü Kontrolü", shape=diamond];
+    Kapi [label="Kapı/Pencere Sensörü Kontrolü", shape=diamond];
+    Ihlal [label="İhlal Var mı?", shape=diamond];
+    Kamera [label="Kamera Aktivasyonu"];
+    EvdeMi [label="Ev Sahibi Evde mi?", shape=diamond];
+    YanlisAlarm [label="Yanlış Alarm - Alarm Devre Dışı"];
+    AlarmSeviye [label="Alarm Seviyesi Belirle\n(1-Düşük, 2-Orta, 3-Yüksek)"];
+    Bildirim [label="Bildirim Gönder (SMS + App + Email)"];
+    Bekle [label="Bekle ve Tekrar Kontrol Et"];
+    Sifirla [label="Alarm Sıfırla mı?", shape=diamond];
+    Devam [label="Alarm Devam Ediyor"];
+    Bitir [label="Bitir"];
+
+    Basla -> SistemKontrol;
+    SistemKontrol -> Pasif [label="Hayır"];
+    SistemKontrol -> Dongu [label="Evet"];
+
+    Dongu -> Hareket;
+    Hareket -> Kapi [label="Devam"];
+    Kapi -> Ihlal;
+    Ihlal -> Kamera [label="Evet"];
+    Ihlal -> Bekle [label="Hayır"];
+
+    Kamera -> EvdeMi;
+    EvdeMi -> YanlisAlarm [label="Evet"];
+    EvdeMi -> AlarmSeviye [label="Hayır"];
+    YanlisAlarm -> Bekle;
+    AlarmSeviye -> Bildirim -> Bekle;
+    Bekle -> Sifirla;
+    Sifirla -> Dongu [label="Hayır"];
+    Sifirla -> Devam [label="Evet"];
+    Devam -> Dongu;
+}
