@@ -1,0 +1,19 @@
+Öğrenci No: 250541020
+Ad-Soyad: Sıla Ağgül
+
+Llm konuşma geçmişi:
+
+Ben:
+Bir ATM’den para çekme işleminin tüm adımlarını modellemem gerekiyor. Önce bunun için bir pseudocode oluşturmam lazım. Kod gibi olsun ama doğal dilde yazılsın, başla ile başlasın, bitir ile bitsin. Koşullar ve döngüler de içinde bulunsun.
+LLM:
+Tamam! İşte ATM para çekme işlemi için algoritma şeklinde bir pseudocode örneği.
+(Burada “pseudocode” kodu yer alır.)
+
+ben:
+Şimdi bu pseudocode’un akış şemasını oluşturmak istiyorum. Bunu Graphviz’le .dot formatında çizmem gerekiyor. Bana uygun bir DOT kodu yazar mısın?
+LLM:
+Elbette. İşte pseudocode’un DOT sürümü:
+(Burada "dot kodu" yer alır.)
+
+
+
