@@ -1,0 +1,49 @@
+Ad-Soyad: Sıla Ağgül
+Öğrenci No: 250541020
+  
+Online Alışveriş Sepet Sistemi Dot Kodu:
+
+digraph OnlineSepetSistemi {
+    rankdir=TB;
+    node [shape=rectangle, style=rounded, fontname="Arial"];
+
+    Basla [label="Başla"];
+    Giris [label="Kullanıcı girişi yap"];
+    GirisKontrol [shape=diamond, label="Giriş bilgileri doğru mu?"];
+    AnaMenu [label="Ana menüye yönlendir"];
+    Kategoriler [label="Ürün kategorilerini göster"];
+    Secim [label="Kategori seçimi (döngü)"];
+    UrunGoster [label="Ürünleri listele"];
+    UrunSecim [label="Ürün seçildi"];
+    StokKontrol [shape=diamond, label="Stokta var mı?"];
+    SepetEkle [label="Sepete ekle"];
+    SepetGoruntule [label="Sepeti görüntüle / düzenle (döngü)"];
+    IndirimKontrol [shape=diamond, label="İndirim kodu girildi mi?"];
+    IndirimUygula [label="İndirimi uygula"];
+    TutarKontrol [shape=diamond, label="Toplam ≥ 50 TL mi?"];
+    KargoKontrol [shape=diamond, label="Toplam ≥ 200 TL mi?"];
+    OdemeSecim [label="Ödeme yöntemi seç"];
+    OdemeDurum [shape=diamond, label="Ödeme başarılı mı?"];
+    Onay [label="Sipariş onaylandı"];
+    Bitir [label="Bitir"];
+
+    Basla -> Giris -> GirisKontrol;
+    GirisKontrol -> AnaMenu [label="Evet"];
+    GirisKontrol -> Giris [label="Hayır"];
+    AnaMenu -> Kategoriler -> Secim -> UrunGoster -> UrunSecim -> StokKontrol;
+    StokKontrol -> SepetEkle [label="Evet"];
+    StokKontrol -> UrunGoster [label="Hayır"];
+    SepetEkle -> SepetGoruntule -> IndirimKontrol;
+    IndirimKontrol -> IndirimUygula [label="Evet"];
+    IndirimKontrol -> TutarKontrol [label="Hayır"];
+    IndirimUygula -> TutarKontrol;
+    TutarKontrol -> KargoKontrol [label="Evet"];
+    TutarKontrol -> UrunGoster [label="Hayır"];
+    KargoKontrol -> OdemeSecim;
+    OdemeSecim -> OdemeDurum;
+    OdemeDurum -> Onay [label="Evet"];
+    OdemeDurum -> OdemeSecim [label="Hayır"];
+    Onay -> Bitir;
+}
+
+
