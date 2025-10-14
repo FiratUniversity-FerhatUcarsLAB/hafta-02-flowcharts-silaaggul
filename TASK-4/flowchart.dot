@@ -1,0 +1,63 @@
+Ad Soyad: Sıla Ağgül
+Öğrenci No: 250541020
+
+Üniversite Ders Kayıt Sistemi Dote Kodu:
+
+digraph DersKayitSistemi {
+    rankdir=TB;
+    node [shape=box, fontname="Arial"];
+
+    Basla [label="Başla"];
+    Giris [label="Öğrenci No ve Şifre Gir"];
+    Dogrulama [label="Giriş Doğru mu?", shape=diamond];
+    Hatalı [label="Hatalı Giriş\nİşlem Sonlandır"];
+    Liste [label="Ders Listesini Görüntüle"];
+    Secim [label="Ders Ekleme/Çıkarma", shape=diamond];
+    Kontenjan [label="Kontenjan Dolu mu?", shape=diamond];
+    OnKosul [label="Ön Koşul Sağlandı mı?", shape=diamond];
+    Zaman [label="Zaman Çakışması Var mı?", shape=diamond];
+    Kredi [label="Toplam Kredi > 35 mi?", shape=diamond];
+    Ekle [label="Ders Ekle"];
+    Cikar [label="Ders Çıkar"];
+    GPA [label="GPA < 2.5 mi?", shape=diamond];
+    Danisman [label="Danışman Onayı Al"];
+    Ozeti [label="Kayıt Özeti Göster"];
+    Onay [label="Kayıt Onayla mı?", shape=diamond];
+    Tamam [label="Kayıt Tamamlandı"];
+    Iptal [label="Kayıt İptal Edildi"];
+    Bitir [label="Bitir"];
+
+    Basla -> Giris -> Dogrulama;
+    Dogrulama -> Hatalı [label="Hayır"];
+    Dogrulama -> Liste [label="Evet"];
+    Liste -> Secim;
+
+    Secim -> Kontenjan [label="Ekle"];
+    Secim -> Cikar [label="Çıkar"];
+    Cikar -> Secim [label="Yeni işlem"];
+
+    Kontenjan -> OnKosul [label="Hayır"];
+    Kontenjan -> Secim [label="Evet"];
+
+    OnKosul -> Zaman [label="Evet"];
+    OnKosul -> Secim [label="Hayır"];
+
+    Zaman -> Kredi [label="Hayır"];
+    Zaman -> Secim [label="Evet"];
+
+    Kredi -> Ekle [label="Hayır"];
+    Kredi -> Secim [label="Evet"];
+
+    Ekle -> Secim [label="Yeni işlem"];
+
+    Secim -> GPA [label="Bitti"];
+    GPA -> Danisman [label="Evet"];
+    GPA -> Ozeti [label="Hayır"];
+    Danisman -> Ozeti;
+    Ozeti -> Onay;
+    Onay -> Tamam [label="Evet"];
+    Onay -> Iptal [label="Hayır"];
+    Tamam -> Bitir;
+    Iptal -> Bitir;
+}
+
