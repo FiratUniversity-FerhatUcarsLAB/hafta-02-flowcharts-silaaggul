@@ -1,0 +1,50 @@
+Öürenci No: 250541020
+Ad-Soyad: Sıla Ağgül
+ATM Para Çekme Sistemi Dot code' u:
+
+digraph ATM_Para_Cekme {
+    rankdir=TB;
+    node [shape=rectangle, style=rounded, fontname="Arial"];
+
+    basla [label="Başla", shape=oval, style=filled, fillcolor=lightgreen];
+    kart [label="Kart takılır\nPIN istenir"];
+    pinKontrol [label="PIN doğru mu?", shape=diamond];
+    yanlisPin [label="Yanlış PIN\nHata sayısı +1"];
+    bloke [label="3 hata → Kart bloke edilir\nİşlem biter"];
+    menu [label="İşlem Menüsü:\n1- Bakiye\n2- Para Çek\n3- Çıkış"];
+    bakiye [label="Bakiye göster"];
+    tutarGir [label="Çekilecek tutar girilir"];
+    kontrol20 [label="Tutar 20 TL’nin katı mı?", shape=diamond];
+    kontrolBakiye [label="Yeterli bakiye var mı?", shape=diamond];
+    kontrolLimit [label="Günlük limit aşılıyor mu?", shape=diamond];
+    paraVer [label="Para verilir\nFiş çıkarılır"];
+    tekrar [label="Başka işlem yapmak ister misiniz?", shape=diamond];
+    bitir [label="Kart iade edilir\nBitir", shape=oval, style=filled, fillcolor=lightblue];
+
+    basla -> kart -> pinKontrol;
+    pinKontrol -> menu [label="Evet"];
+    pinKontrol -> yanlisPin [label="Hayır"];
+    yanlisPin -> pinKontrol [label="Deneme < 3"];
+    yanlisPin -> bloke [label="Deneme = 3"];
+    bloke -> bitir;
+
+    menu -> bakiye [label="1"];
+    menu -> tutarGir [label="2"];
+    menu -> bitir [label="3"];
+
+    bakiye -> menu;
+
+    tutarGir -> kontrol20;
+    kontrol20 -> kontrolBakiye [label="Evet"];
+    kontrol20 -> menu [label="Hayır"];
+
+    kontrolBakiye -> kontrolLimit [label="Evet"];
+    kontrolBakiye -> menu [label="Hayır"];
+
+    kontrolLimit -> paraVer [label="Hayır"];
+    kontrolLimit -> menu [label="Evet"];
+
+    paraVer -> tekrar;
+    tekrar -> menu [label="Evet"];
+    tekrar -> bitir [label="Hayır"];
+}
