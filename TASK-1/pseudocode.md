@@ -1,5 +1,5 @@
-Öğrenci No: 250541020
 Ad-Soyad: Sıla Ağgül
+Öğrenci No: 250541020
 
 ATM Para Çekme Sistemi Pseudocode'u:
 
