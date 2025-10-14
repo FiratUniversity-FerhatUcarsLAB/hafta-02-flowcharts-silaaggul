@@ -1,0 +1,49 @@
+Ad Soyad: Sıla Ağgül
+Öğrenci No: 250541020
+
+Hastane Randevu ve Tahlil Sistemi Dot Kodu:
+
+digraph HastaneSistemi {
+    rankdir=TB;
+    node [shape=box, fontname="Arial"];
+
+    Basla [label="Başla"];
+    Kimlik [label="TC Kimlik Numarası Gir"];
+    GecerliMi [label="Kimlik Geçerli mi?", shape=diamond];
+    Gecersiz [label="Geçersiz kimlik\nİşlem sonlandır"];
+    IslemSec [label="İşlem Seç:\n1-Randevu Al\n2-Tahlil Gör"];
+    Randevu [label="Randevu Modülü"];
+    Tahlil [label="Tahlil Modülü"];
+    Poliklinik [label="Poliklinik Seçimi"];
+    Doktor [label="Doktor Seçimi"];
+    Saat [label="Uygun Saat Seçimi"];
+    Onay [label="Randevu Onayı ve SMS Gönderimi"];
+    TahlilVarMi [label="Tahlil Var mı?", shape=diamond];
+    SonucHazirMi [label="Sonuç Hazır mı?", shape=diamond];
+    SonucYok [label="Tahlil Bulunamadı"];
+    Bekle [label="Sonuç Bekleniyor"];
+    Goster [label="Sonuç Görüntüle"];
+    PDF [label="PDF İndir Seçeneği"];
+    Baska [label="Başka İşlem İster misiniz?", shape=diamond];
+    Bitir [label="Bitir"];
+
+    Basla -> Kimlik -> GecerliMi;
+    GecerliMi -> Gecersiz [label="Hayır"];
+    GecerliMi -> IslemSec [label="Evet"];
+    IslemSec -> Randevu [label="1"];
+    IslemSec -> Tahlil [label="2"];
+
+    Randevu -> Poliklinik -> Doktor -> Saat -> Onay -> Baska;
+    Tahlil -> TahlilVarMi;
+    TahlilVarMi -> SonucYok [label="Hayır"];
+    TahlilVarMi -> SonucHazirMi [label="Evet"];
+    SonucHazirMi -> Bekle [label="Hayır"];
+    SonucHazirMi -> Goster [label="Evet"];
+    Goster -> PDF -> Baska;
+    SonucYok -> Baska;
+    Bekle -> Baska;
+
+    Baska -> IslemSec [label="Evet"];
+    Baska -> Bitir [label="Hayır"];
+}
+
