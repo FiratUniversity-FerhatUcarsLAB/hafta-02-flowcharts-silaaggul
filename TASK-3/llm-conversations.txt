@@ -1,0 +1,15 @@
+Ad Soyad: Sıla Ağgül 
+Öğrenci No: 250541020
+
+LLM Sohbet Geçmişi:
+Ben:
+Bir hastane randevu ve tahlil sistemi modellemek istiyorum. Kimlik doğrulama, randevu alma ve tahlil sonuçlarını görüntüleme adımlarını içersin. Bunun için bana bir pseudocode yazar mısın?
+LLM:
+Tabii, aşağıda kimlik doğrulama, randevu ve tahlil süreçlerini kapsayan ayrıntılı bir pseudocode var.
+(pseudocode burada yer alır)
+
+Ben:
+Şimdi bunun akış diyagramını istiyorum ama DOT formatında ve Türkçe yazılsın.
+LLM:
+Tamamdır. Aşağıdaki DOT kodu sistemin işleyişini Türkçe etiketlerle gösteriyor.
+(dot kodu burada yer alır)
